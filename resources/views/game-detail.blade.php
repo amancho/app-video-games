@@ -14,7 +14,7 @@
                             <h2 class="card-title">{{ strtoupper($game->name) }}</h2>
                             <div class="mb-2">
                                 <h4>Platform</h4>
-                                <p>Nintendo Switch</p>
+                                <p>{{ $game->platform }}</p>
                             </div>
                             <div class="mb-2">
                                 <h4>Description</h4>
@@ -22,11 +22,11 @@
                             </div>
                             <div class="mb-2">
                                 <h4>Release date</h4>
-                                <p>27-10-2017</p>
+                                <p>{{ $game->release_date->format('d/m/Y') }}</p>
                             </div>
                             <div class="mb-2">
                                 <h4>Nintendo eShop price</h4>
-                                <p>59,99 €</p>
+                                <p>{{ $game->price }} €</p>
                             </div>
                             <div class="mb-2">
                                 <button type="button" class="btn btn-dark">Go Back</button>
