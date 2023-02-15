@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('game-list');
-});
+use App\Http\Controllers\GamesController;
+
+Route::get(
+    '/',
+    [GamesController::class, 'list']
+)->name('list.games.get');
+
+
