@@ -15,4 +15,9 @@ class GamesController extends Controller
     {
         return view('game-detail', ['game' => Game::findOrFail($gameId)]);
     }
+
+    public function delete(int $gameId)
+    {
+        return Game::destroy($gameId);
+    }
 }

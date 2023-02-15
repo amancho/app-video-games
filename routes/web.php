@@ -23,4 +23,10 @@ Route::get(
     [GamesController::class, 'view']
 )->name('view.games.get');
 
+Route::get(
+    'delete/{gameId}',
+    [GamesController::class, 'delete']
+)->name('delete.games.get');
+
+
 
