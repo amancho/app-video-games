@@ -18,4 +18,9 @@ Route::get(
     [GamesController::class, 'list']
 )->name('list.games.get');
 
+Route::get(
+    '/{gameId}',
+    [GamesController::class, 'view']
+)->name('view.games.get');
+
 

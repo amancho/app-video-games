@@ -10,4 +10,9 @@ class GamesController extends Controller
     {
         return view('game-list', ['games' => Game::all()]);
     }
+
+    public function view(int $gameId)
+    {
+        return view('game-detail', ['game' => Game::findOrFail($gameId)]);
+    }
 }
