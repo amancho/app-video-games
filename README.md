@@ -36,3 +36,26 @@ Es un Laravel 6 normal y corriente, pero por si acaso:
     - npm install
     - npm run dev
     - php artisan serve (o usa tu servidor web preferido)
+  
+## Instrucciones de instalación para Docker
+
+- Instala [docker-compose](https://dockerlabs.collabnix.com/intermediate/workshop/DockerCompose/How_to_Install_Docker_Compose.html)
+  - Ejecuta los siguentes comandos en tu terminal
+    - Clona el repositorio 
+      - `git clone git@github.com:amancho/app-video-games.git`
+    - Modifica los permisos de la carpeta 
+      - `sudo chmod 777 -R app-video-games/`
+    - Accede al proyecto 
+      - `cd app-video-games/`
+    - Modifica la configuración de git 
+      - `git config core.fileMode false`
+    - Copia el archivo de configuración 
+      - `cp .env.example .env`
+    - Obten las dependencias 
+      - `docker/composer install --no-scripts`
+    - Inicia el entorno 
+      - `docker/up` 
+    - Ejecuta las migraciones
+      - `docker exec -ti app-video-games-php php artisan migrate --seed`
+    - Accede al [proyecto](http://192.168.45.10/)  
+    

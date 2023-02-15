@@ -1,0 +1,42 @@
+version: '3.9'
+
+networks:
+    vgames-net:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 192.168.45.0/24
+                  gateway: 192.168.45.1
+
+services:
+    php:
+        build:
+            context: docker/images/php
+            dockerfile: Dockerfile
+        container_name: app-video-games-php
+        networks:
+            vgames-net:
+                ipv4_address: 192.168.45.10
+        tty: true
+        volumes:
+            - './:/var/www/html'
+
+    mysql:
+        image: mysql:5.7
+        container_name: app-video-games-mysql
+        command: --init-file /data/application/init.sql
+        volumes:
+            - './data/db:/var/lib/mysql'
+            - './docker/images/mysql/init.sql:/data/application/init.sql'
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+        networks:
+            vgames-net:
+                ipv4_address: 192.168.45.12
+        ports:
+          - '3306:3306'
+        tty: true
+        restart: always

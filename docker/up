@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker build docker/images/php -t app-video-games.php
+
+docker-compose up -d
