@@ -1,6 +1,3 @@
-@extends('layout')
-
-@section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-9 col-lg-8 col-xl-7">
@@ -29,7 +26,7 @@
                                 <p>{{ $game->price }} €</p>
                             </div>
                             <div class="mb-2">
-                                <button type="button" class="btn btn-dark">Go Back</button>
+                                <button type="button" class="btn btn-dark" onclick="loadList();">Go Back</button>
                             </div>
                         </div>
                     </div>
@@ -38,4 +35,3 @@
         </div>
     </div>
 </div>
-@stop

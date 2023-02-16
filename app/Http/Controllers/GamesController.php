@@ -18,6 +18,8 @@ class GamesController extends Controller
 
     public function delete(int $gameId)
     {
-        return Game::destroy($gameId);
+        Game::destroy($gameId);
+
+        return (string) $gameId;
     }
 }
